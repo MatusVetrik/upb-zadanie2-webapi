@@ -17,7 +17,7 @@
             <ul>
                 <p>Prihlásený: {{ session['user'] }}</p>
                 <li>
-                    <a href="../decrypt" >Decrypt</a>
+                    <a href="../decrypt" >Dešifrovanie</a>
                 </li>
                 <li>
                     <a href="../encrypt" >Poslať súbor</a>
@@ -76,17 +76,17 @@
 
         <form method=post enctype=multipart/form-data>
           <div>
-            <label for="comment">Komentar</label>
+            <label for="comment">Komentár</label>
             <input type="text" id="comment" maxlength="50" name="comment" required>
             <input type="hidden" id="userName" name="userName" value="{{response[6]}}">
           </div>
-          <input type=submit value="Pridaj komentar" name=add_comment>
+          <input type=submit value="Pridaj komentár" name=add_comment>
         </form>
         </div>
         <div class="centered">
           <table>
             <tr>
-              <th>Komentare</th>
+              <th>Komentáre</th>
             </tr>
             {% for comment in responseComments %}
                <tr>

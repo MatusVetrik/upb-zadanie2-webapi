@@ -17,7 +17,7 @@
       <ul>
         <p>Prihlásený: {{ session['user'] }}</p>
         <li id="decrypt_menu_button">
-          <a href="./decrypt">Decrypt</a>
+          <a href="./decrypt">Dešifrovanie</a>
         </li>
         <li id="encrypt_menu_button">
           <a href="./encrypt">Poslať súbor</a>
@@ -37,7 +37,7 @@
   <div class="center">
     <div class="title">
       {% if mode == 'decrypt' %}
-      <h1>Posielanie súboru</h1>
+      <h1>Dešifrovanie súboru</h1>
       <script>document.getElementById("decrypt_menu_button").classList.add("selected")</script>
       {% else %}
       <h1>Posielanie súborov<h1>
@@ -50,11 +50,13 @@
     <section>
       <form method=post enctype=multipart/form-data>
         <input type=file name=file multiple>
+        {% if not mode == 'decrypt' %}
         <select name="user_select">
           {% for user in users %}
           <option value="{{user}}" name="{{user}}">{{user}}</option>
           {% endfor %}
         </select>
+        {% endif %}
         <input type=submit value=Upload>
       </form>
       {% if mode == 'decrypt' %}
